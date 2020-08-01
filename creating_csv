@@ -1,0 +1,18 @@
+import csv
+
+def write_into_csv(info_list):
+  with open('student_info.csv','a',newline='')as csv_file:
+    writer=csv.writer(csv_file)
+    if csv_file.tell()==0:
+      writer.writerow(info_list)
+
+while(True):
+  student_info=input("enter the studemt information in the following format:NAME CLASS ROLLNO DEPT").casefold()
+  student_info_list=student_info.split(' ')
+  print("enter information"+str(student_info_list))
+  write_into_csv(student_info_list)
+  check=input("do you want to continue:yes or no").casefold()
+  if check=="yes":
+    continue
+  else:
+    break
